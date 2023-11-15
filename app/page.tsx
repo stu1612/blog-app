@@ -1,5 +1,5 @@
-import FeaturedBlogs from "@/components/FeaturedBlogs";
-import ThemeToggler from "@/components/ThemeToggler";
+import FeaturedBlogs from "@/components/blogs/FeaturedBlogs";
+import ThemeToggler from "@/components/themes/ThemeToggler";
 
 export default function Home() {
   return (
