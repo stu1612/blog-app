@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --bg: #fff;
   --textColor: #181818;
   --softBg: #f0f0f0;
   --softTextColor: #626262;
-}
+} */
 
 * {
   padding: 0;
@@ -44,18 +44,4 @@ menu {
 img {
   max-inline-size: 100%;
   max-block-size: 100%;
-}
-
-.dark {
-  --bg: #0f172a;
-  --textColor: #fafafa;
-  --softBg: #1f273a;
-  --softTextColor: #a6a6a6;
-}
-
-.light {
-  --bg: #fff;
-  --textColor: #181818;
-  --softBg: #f0f0f0;
-  --softTextColor: #626262;
 }
