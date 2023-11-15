@@ -3,11 +3,19 @@ import { fetchGraphQL } from "@/services/api";
 import { FeaturedPost } from "@/types";
 
 export default async function FeaturedBlogs() {
-  const blogs: FeaturedPost[] | undefined = await fetchGraphQL(featuredBlogs);
+  const { posts } = await fetchGraphQL(featuredBlogs);
 
   return (
     <section>
-      <p>Blogs</p>
+      {posts ? (
+        posts.map((post: FeaturedPost) => (
+          <div key={post.id}>
+            <h1>{post.title}</h1>
+          </div>
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
     </section>
   );
 }
