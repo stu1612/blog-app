@@ -22,6 +22,7 @@ export async function fetchGraphQL(query: string) {
       throw new Error("GraphQL query error");
     }
     return data;
+    console.log("data ", data);
   } catch (error) {
     console.error("GraphQL request error", error);
     throw error;

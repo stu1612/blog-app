@@ -1,21 +1,29 @@
-import { featuredBlogs } from "@/services";
-import { fetchGraphQL } from "@/services/api";
+// npm
+import Link from "next/link";
+
+// files
 import { FeaturedPost } from "@/types";
 
-export default async function FeaturedBlogs() {
-  const { posts } = await fetchGraphQL(featuredBlogs);
+interface iFeaturedPosts {
+  posts?: FeaturedPost[];
+}
 
+function BlogPost({ post }: { post: FeaturedPost }) {
+  return (
+    <div className="border-2 m-4">
+      <h1>{post.title}</h1>
+      <Link href={`/blog/${post.slug}`}>See more</Link>
+    </div>
+  );
+}
+
+export default async function FeaturedBlogs({ posts }: iFeaturedPosts) {
   return (
     <section>
-      {posts ? (
-        posts.map((post: FeaturedPost) => (
-          <div key={post.id}>
-            <h1>{post.title}</h1>
-          </div>
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
+      <h1>Hello</h1>
+      {posts?.map((post: FeaturedPost) => (
+        <BlogPost key={post.id} post={post} />
+      ))}
     </section>
   );
 }
