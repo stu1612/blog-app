@@ -1,6 +1,5 @@
 import { gql, request } from "graphql-request";
 
-import { HYGRAPH_ENDPOINT } from "@/config";
 import { FeaturedPost } from "@/types";
 
 interface FeaturedBlogQuery {
@@ -21,7 +20,3 @@ export const featuredBlogs = gql`
     }
   }
 `;
-
-//   const result = await request<FeaturedBlogQuery>(HYGRAPH_ENDPOINT, query);
-
-//   return result.posts;
