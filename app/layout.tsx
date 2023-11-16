@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/themes/ThemeProvider";
+import Navbar from "@/components/common/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,10 @@ export default function RootLayout({
     >
       <body className={`${inter.className} bg-slate-50 dark:bg-[#0d1117]`}>
         <ThemeProvider attribute="class" enableSystem={true}>
-          <main>{children}</main>
+          <Navbar />
+          <main className="relative overflow-x-hidden py-[100px]">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

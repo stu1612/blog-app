@@ -1,4 +1,5 @@
-import React from "react";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 interface iBlogPost {
   params: {
@@ -9,5 +10,9 @@ interface iBlogPost {
 export default function BlogPost({ params }: iBlogPost) {
   // properties
   const { slug } = params;
-  return <div>BlogPost - {slug}</div>;
+  return (
+    <div>
+      <Suspense fallback={<Loading />}>BlogPost</Suspense>
+    </div>
+  );
 }
