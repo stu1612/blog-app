@@ -11,12 +11,12 @@ export const socialLinks: iSocialLinks[] = [
   {
     id: 1,
     url: "https://www.linkedin.com/in/stuartbolderson/",
-    icon: <IoLogoLinkedin />,
+    icon: <IoLogoLinkedin size={26} />,
   },
   {
     id: 2,
     url: "https://github.com/stu1612",
-    icon: <IoLogoGithub />,
+    icon: <IoLogoGithub size={26} />,
   },
 ];
 
@@ -27,12 +27,12 @@ export const navLinks = [
     href: "/blogs",
   },
   {
-    id: 1,
+    id: 2,
     title: "about",
     href: "/about",
   },
   {
-    id: 1,
+    id: 3,
     title: "Contact",
     href: "/contact",
   },

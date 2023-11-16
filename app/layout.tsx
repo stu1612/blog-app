@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/themes/ThemeProvider";
 import Navbar from "@/components/common/Navbar";
+import { NavContextProvider } from "@/context/NavContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,12 +27,16 @@ export default function RootLayout({
       className="light"
       suppressHydrationWarning={true}
     >
-      <body className={`${inter.className} bg-slate-50 dark:bg-[#0d1117]`}>
+      <body
+        className={`${poppins.className} bg-light-30 dark:bg-dark-100 text-black dark:text-white`}
+      >
         <ThemeProvider attribute="class" enableSystem={true}>
-          <Navbar />
-          <main className="relative overflow-x-hidden py-[100px] w-appWidth mx-auto">
-            {children}
-          </main>
+          <NavContextProvider>
+            <Navbar />
+            <main className="relative overflow-x-hidden py-[100px] w-appWidth mx-auto">
+              {children}
+            </main>
+          </NavContextProvider>
         </ThemeProvider>
       </body>
     </html>

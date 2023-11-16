@@ -6,14 +6,15 @@ import FeaturedBlogs from "@/components/blogs/FeaturedBlogs";
 import Loading from "./loading";
 import { featuredBlogs } from "@/services";
 import { fetchGraphQL } from "@/services/api";
+import Hero from "@/components/layout/Hero";
 
 export default async function Home() {
   const { posts } = await fetchGraphQL(featuredBlogs);
+
   return (
-    <div className="h-screen padding-container">
-      <Suspense fallback={<Loading />}>
+    <Hero />
+    /* <Suspense fallback={<Loading />}>
         <FeaturedBlogs posts={posts} />
-      </Suspense>
-    </div>
+      </Suspense> */
   );
 }

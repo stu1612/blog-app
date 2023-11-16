@@ -113,12 +113,68 @@ img {
 }
 
 @layer utilities {
+  /* layouts */
   .padding-container {
     @apply px-4 xl:px-0;
   }
 
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .flex-around {
+    @apply flex justify-around items-center;
+  }
+
+  .flex-evenly {
+    @apply flex justify-evenly items-center;
+  }
+
+  .flex-end {
+    @apply flex justify-end items-center;
+  }
+
   /* fonts */
-  .font-mobile-link {
-    @apply uppercase;
+  .mobile-navLink {
+    @apply uppercase text-2xl;
+  }
+
+  .font-link {
+    @apply capitalize font-normal mr-4 text-lg;
+  }
+
+  .heading-h1 {
+    @apply text-3xl lg:text-5xl lg:leading-[3.9rem] xl:text-6xl xl:leading-[4.87rem] font-medium;
+  }
+
+  .clip-text {
+    @apply inline-block text-transparent bg-clip-text;
+  }
+
+  /* bg gradients */
+  .bg-emerald {
+    @apply bg-gradient-to-r from-emerald-500 to-lime-600;
+  }
+
+  .bg-hyper {
+    @apply bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500;
+  }
+
+  /* transitions */
+  .custom-transition {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  /* general */
+  .burger-line {
+    @apply bg-zinc-100 dark:bg-zinc-600 block rounded-sm transition-all duration-300 ease-out;
+  }
+
+  .box-shadow {
+    @apply shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)];
   }
 }

@@ -9,6 +9,16 @@ const config: Config = {
   darkMode: ["class"],
   theme: {
     extend: {
+      colors: {
+        dark: {
+          100: "#041C32",
+        },
+        light: {
+          10: "#fafafa",
+          30: "#eeeeee",
+        },
+      },
+
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
