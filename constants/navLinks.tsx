@@ -1,4 +1,13 @@
-export const socialLinks = [
+// import { React } from "react";
+import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
+
+interface iSocialLinks {
+  id: number;
+  url: string;
+  icon: React.ReactElement;
+}
+
+export const socialLinks: iSocialLinks[] = [
   {
     id: 1,
     url: "https://www.linkedin.com/in/stuartbolderson/",
@@ -34,36 +43,36 @@ export const mobileNavLinks = [
     id: 1,
     title: "Home",
     href: "/",
-    url: null,
+    link: null,
   },
   {
     id: 2,
     title: "Blogs",
     href: "/blogs",
-    url: null,
+    link: null,
   },
   {
     id: 3,
     title: "About",
     href: "/about",
-    url: null,
+    link: null,
   },
   {
     id: 4,
     title: "Contact",
     href: "/contact",
-    url: null,
+    link: null,
   },
   {
     id: 5,
     title: "Linkedin",
-    href: null,
-    url: "https://www.linkedin.com/in/stuartbolderson/",
+    href: undefined,
+    link: "https://www.linkedin.com/in/stuartbolderson/",
   },
   {
     id: 6,
     title: "Github",
-    href: null,
-    url: "https://github.com/stu1612",
+    href: undefined,
+    link: "https://github.com/stu1612",
   },
 ];

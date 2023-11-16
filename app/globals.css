@@ -116,4 +116,9 @@ img {
   .padding-container {
     @apply px-4 xl:px-0;
   }
+
+  /* fonts */
+  .font-mobile-link {
+    @apply uppercase;
+  }
 }
