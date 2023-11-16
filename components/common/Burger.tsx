@@ -1,7 +1,14 @@
-export default function Burger() {
+"use client";
+
+interface iBurgerProps {
+  isOpen: boolean;
+  toggleNavbar: () => void;
+}
+
+export default function Burger({ isOpen, toggleNavbar }: iBurgerProps) {
   return (
     <button
-      onClick={handleClick}
+      onClick={toggleNavbar}
       className="flex flex-col justify-end items-end cursor-pointer z-50 bg-[#fa0047] p-3 md:hidden"
     >
       <span

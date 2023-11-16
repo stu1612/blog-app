@@ -10,9 +10,9 @@ interface iFeaturedPosts {
 
 function BlogPost({ post }: { post: FeaturedPost }) {
   return (
-    <div className="border-2 m-4">
+    <div className="border-2">
       <h1>{post.title}</h1>
-      <Link href={`/blog/${post.slug}`}>See more</Link>
+      <Link href={`/blogs/${post.slug}`}>See more</Link>
     </div>
   );
 }

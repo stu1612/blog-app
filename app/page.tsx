@@ -10,8 +10,7 @@ import { fetchGraphQL } from "@/services/api";
 export default async function Home() {
   const { posts } = await fetchGraphQL(featuredBlogs);
   return (
-    <div className="h-screen w-full">
-      <h1>Hello</h1>
+    <div className="h-screen padding-container">
       <Suspense fallback={<Loading />}>
         <FeaturedBlogs posts={posts} />
       </Suspense>

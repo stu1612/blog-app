@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-slate-50 dark:bg-[#0d1117]`}>
         <ThemeProvider attribute="class" enableSystem={true}>
           <Navbar />
-          <main className="relative overflow-x-hidden py-[100px]">
+          <main className="relative overflow-x-hidden py-[100px] w-appWidth mx-auto">
             {children}
           </main>
         </ThemeProvider>
