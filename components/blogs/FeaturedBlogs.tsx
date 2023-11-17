@@ -20,7 +20,6 @@ function BlogPost({ post }: { post: FeaturedPost }) {
 export default async function FeaturedBlogs({ posts }: iFeaturedPosts) {
   return (
     <section>
-      <h1>Hello</h1>
       {posts?.map((post: FeaturedPost) => (
         <BlogPost key={post.id} post={post} />
       ))}

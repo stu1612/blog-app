@@ -4,7 +4,7 @@
 import Link from "next/link";
 
 // files
-import ThemeToggler from "../themes/ThemeToggler";
+import ThemeToggler from "../../themes/ThemeToggler";
 import Burger from "./Burger";
 import { navLinks, socialLinks, mobileNavLinks } from "@/constants/navLinks";
 import useNavContext from "@/hooks/useNavContext";
@@ -21,7 +21,7 @@ export default function Navbar() {
       {/* LARGE NAVBAR */}
       <div
         className={`w-appWidth flex-between mx-auto h-full ${
-          isOpen ? "border-0" : "border-b-2 border-slate-300"
+          isOpen ? "border-0" : "border-b border-slate-500"
         } `}
       >
         <ul className="hidden flex-1 md:flex">

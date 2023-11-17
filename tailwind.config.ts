@@ -27,6 +27,9 @@ const config: Config = {
       width: {
         appWidth: "min(100%, 1280px)",
       },
+      gridTemplateColumns: {
+        gallery: "repeat(auto-fit, minmax(300px, 1fr))",
+      },
     },
   },
   plugins: [],

@@ -115,7 +115,7 @@ img {
 @layer utilities {
   /* layouts */
   .padding-container {
-    @apply px-4 xl:px-0;
+    @apply px-4 md:px-12 2xl:px-0;
   }
 
   .flex-center {
@@ -138,6 +138,10 @@ img {
     @apply flex justify-end items-center;
   }
 
+  .flex-evenly-start {
+    @apply flex justify-evenly items-start;
+  }
+
   /* fonts */
   .mobile-navLink {
     @apply uppercase text-2xl;
@@ -147,8 +151,20 @@ img {
     @apply capitalize font-normal mr-4 text-lg;
   }
 
-  .heading-h1 {
+  .font-h1 {
     @apply text-3xl lg:text-5xl lg:leading-[3.9rem] xl:text-6xl xl:leading-[4.87rem] font-medium;
+  }
+
+  .font-h2 {
+    @apply text-xl lg:text-2xl xl:text-4xl font-semibold;
+  }
+
+  .font-h3 {
+    @apply text-xl lg:text-2xl xl:text-3xl font-semibold;
+  }
+
+  .font-p {
+    @apply text-lg font-normal;
   }
 
   .clip-text {
