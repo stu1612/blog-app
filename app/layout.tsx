@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/themes/ThemeProvider";
-import Navbar from "@/components/common/navbar/Navbar";
+import Navbar from "@/components/layout/Navbar";
 import { NavContextProvider } from "@/context/NavContext";
+import Footer from "@/components/layout/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
             <main className="relative overflow-x-hidden py-[100px] w-appWidth mx-auto">
               {children}
             </main>
+            <Footer />
           </NavContextProvider>
         </ThemeProvider>
       </body>

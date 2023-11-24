@@ -4,8 +4,8 @@
 import Link from "next/link";
 
 // files
-import ThemeToggler from "../../themes/ThemeToggler";
-import Burger from "./Burger";
+import ThemeToggler from "../themes/ThemeToggler";
+import Burger from "../common/Burger";
 import { navLinks, socialLinks, mobileNavLinks } from "@/constants/navLinks";
 import useNavContext from "@/hooks/useNavContext";
 
