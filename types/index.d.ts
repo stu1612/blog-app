@@ -1,3 +1,4 @@
+import { FeaturedPost } from "@/types";
 export type FeaturedPost = {
   createdAt: string;
   excerpt: string;
@@ -8,4 +9,21 @@ export type FeaturedPost = {
   image: {
     url: string;
   };
+  categories: [
+    {
+      name: string;
+      id: string;
+      slug: string;
+    }
+  ];
+};
+
+export type Category = {
+  name: string;
+  id: string;
+  slug: string;
+};
+
+export type FeaturedPostsProps = {
+  posts?: FeaturedPost[];
 };

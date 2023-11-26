@@ -17,6 +17,11 @@ export const featuredBlogs = gql`
       image {
         url
       }
+      categories {
+        name
+        id
+        slug
+      }
     }
   }
 `;
