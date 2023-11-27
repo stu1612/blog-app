@@ -1,21 +1,28 @@
+import { CategoryType } from "@/types";
+
 interface iCategory {
-  category: string;
-  filterBlogsByCategory?: (selectedCategory: string) => void;
-  resetBlogsCategory?: () => void;
+  category: any;
+  // filterBlogsByCategory?: (selectedCategory: string) => void;
+  // resetBlogsCategory?: () => void;
 }
+
+import useCategoryContext from "@/hooks/useCategoryContext";
 
 export default function CategoryItem({
   category,
-  filterBlogsByCategory,
-  resetBlogsCategory,
-}: iCategory) {
+}: // filterBlogsByCategory,
+// resetBlogsCategory,
+iCategory) {
+  const { filterPostsByCategory, resetPosts } = useCategoryContext();
+
   const handleClick = () => {
-    if (category === "all" && resetBlogsCategory) {
-      resetBlogsCategory();
-    } else if (filterBlogsByCategory) {
-      filterBlogsByCategory(category);
+    if (category === "all") {
+      resetPosts();
+    } else {
+      filterPostsByCategory(category);
     }
   };
+
   return (
     <p
       className="bg-sky dark:bg-ocean py-2 px-4 rounded-lg text-black font-medium text-sm lowercase cursor-pointer"

@@ -1,3 +1,5 @@
+"use client";
+
 // files
 // import BlogCard from "../common/BlogCard";
 // import ProjectsList from "./ProjectsList";
@@ -8,6 +10,7 @@ import { Suspense } from "react";
 import Loading from "@/app/loading";
 import ContentLargeScreen from "./ContentLargeScreen";
 import ContentSmallScreen from "./ContentSmallScreen";
+import { CategoryContextProvider } from "@/context/CategoryContext";
 
 interface iFeaturedPosts {
   posts?: FeaturedPost[];
@@ -62,12 +65,16 @@ interface iFeaturedPosts {
 
 export default function MainContent({ posts }: iFeaturedPosts) {
   return (
-    <section className="padding-container w-full">
-      <h2 className="font-h2">Recent Blogs</h2>
-      <Suspense fallback={<Loading />}>
-        <ContentSmallScreen posts={posts} />
-        <ContentLargeScreen posts={posts} />
-      </Suspense>
-    </section>
+    <CategoryContextProvider posts={posts}>
+      <section className="padding-container w-full">
+        <h2 className="font-h2">Recent Blogs</h2>
+        <Suspense fallback={<Loading />}>
+          {/* <ContentSmallScreen posts={posts} />
+          <ContentLargeScreen posts={posts} /> */}
+          <ContentSmallScreen />
+          <ContentLargeScreen />
+        </Suspense>
+      </section>
+    </CategoryContextProvider>
   );
 }
