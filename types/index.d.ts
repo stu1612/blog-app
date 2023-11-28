@@ -17,6 +17,25 @@ export type FeaturedPost = {
   ];
 };
 
+export type BlogPost = {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  createdAt: string;
+  image: {
+    url: string;
+  };
+  content: {
+    raw: string;
+  };
+  categories: {
+    id: string;
+    slug: string;
+    name: string;
+  }[];
+};
+
 export type CategoryType = {
   name: string;
   // id: number;

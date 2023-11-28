@@ -1,13 +1,13 @@
 import { GRAPHQL_ENDPOINT } from "@/config";
 
-export async function fetchGraphQL(query: string) {
+export async function fetchGraphQL(query: string, slug?: string) {
   try {
     const response = await fetch(GRAPHQL_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ query }),
+      body: JSON.stringify({ query, variables: { slug } }),
     });
 
     // check for status response if data not returned
