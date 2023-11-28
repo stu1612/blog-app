@@ -2,12 +2,15 @@ import BlogCard from "../common/BlogCard";
 // import CategoryItem from "../common/CategoryItem";
 import { FeaturedPost } from "@/types";
 import ProjectsList from "./ProjectsList";
+import useCategoryContext from "@/hooks/useCategoryContext";
 
 interface iFeaturedPosts {
   posts?: FeaturedPost[];
 }
 
 export default function ContentSmallScreen({ posts }: iFeaturedPosts) {
+  const { postsList, categoryList } = useCategoryContext();
+
   return (
     <div className="grid grid-container-sm gap-10">
       <div className="grid grid-categories">
@@ -20,7 +23,7 @@ export default function ContentSmallScreen({ posts }: iFeaturedPosts) {
         </div>
       </div>
       <div className="grid-blogs grid gap-y-10">
-        {posts?.map((post) => (
+        {postsList?.map((post) => (
           <BlogCard post={post} key={post.id} />
         ))}
       </div>
