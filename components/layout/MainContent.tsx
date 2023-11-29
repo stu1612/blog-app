@@ -17,7 +17,7 @@ export default function MainContent({ posts }: iFeaturedPosts) {
     <CategoryContextProvider posts={posts}>
       <section className="padding-container w-full">
         <h2 className="font-h2">Recent Blogs</h2>
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback="loading ..">
           <ContentSmallScreen />
           <ContentLargeScreen />
         </Suspense>

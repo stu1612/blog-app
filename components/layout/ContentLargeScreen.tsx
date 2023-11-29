@@ -1,10 +1,12 @@
 import CategoryItem from "../common/CategoryItem";
 import LargeScreenProjectsList from "./LargeScreenProjectsList";
-import { CategoryType } from "@/types";
+import { CategoryType, FeaturedPost, FeaturedPostsProps } from "@/types";
 import BlogCard from "../common/BlogCard";
 import useCategoryContext from "@/hooks/useCategoryContext";
+import { Suspense } from "react";
+import Loading from "@/app/loading";
 
-export default function ContentLargeScreen() {
+export default async function ContentLargeScreen({}) {
   const { postsList, categoryList } = useCategoryContext();
 
   return (

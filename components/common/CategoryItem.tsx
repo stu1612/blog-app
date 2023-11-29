@@ -8,11 +8,7 @@ interface iCategory {
 
 import useCategoryContext from "@/hooks/useCategoryContext";
 
-export default function CategoryItem({
-  category,
-}: // filterBlogsByCategory,
-// resetBlogsCategory,
-iCategory) {
+export default function CategoryItem({ category }: iCategory) {
   const { filterPostsByCategory, resetPosts } = useCategoryContext();
 
   const handleClick = () => {

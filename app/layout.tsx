@@ -4,7 +4,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/themes/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import { NavContextProvider } from "@/context/NavContext";
-// import { CategoryContextProvider } from "@/context/CategoryContext";
 import Footer from "@/components/layout/Footer";
 
 const poppins = Poppins({
@@ -35,11 +34,9 @@ export default function RootLayout({
         <ThemeProvider attribute="class" enableSystem={true}>
           <NavContextProvider>
             <Navbar />
-            {/* <CategoryContextProvider> */}
             <main className="relative overflow-x-hidden py-[100px] w-appWidth mx-auto">
               {children}
             </main>
-            {/* </CategoryContextProvider> */}
             <Footer />
           </NavContextProvider>
         </ThemeProvider>

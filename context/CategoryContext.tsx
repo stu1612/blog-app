@@ -29,14 +29,13 @@ export const CategoryContext = createContext<ContextType | undefined>(
 
 export const CategoryContextProvider = ({
   children,
-  posts = [],
+  posts,
 }: ChildrenProps & PostsProps) => {
-  const [postsList, setPostsList] = useState<FeaturedPost[]>([]);
+  const [postsList, setPostsList] = useState<FeaturedPost[]>(posts || []);
   const [categoryList, setCategoryList] = useState<any>();
   // const [category, setCategory] = useState<string>("");
 
   useEffect(() => {
-    setPostsList(posts);
     const category = posts?.flatMap((post) => post.categories[0]?.name || []);
     const categories = [...new Set(category)];
     setCategoryList(categories);
@@ -46,7 +45,7 @@ export const CategoryContextProvider = ({
     const categoryLower = selectedCategory.toLowerCase();
 
     if (categoryLower === "") {
-      setPostsList(posts);
+      setPostsList(posts!);
     } else {
       const filteredPosts = posts
         ? posts.filter((post) =>
@@ -60,7 +59,7 @@ export const CategoryContextProvider = ({
   };
 
   const resetPosts = () => {
-    setPostsList(posts);
+    setPostsList(posts!);
   };
 
   const contextValue: ContextType = {
