@@ -48,3 +48,8 @@ export type CategoryProps = {
 export type FeaturedPostsProps = {
   posts?: FeaturedPost[];
 };
+
+export type CategoriesProps = {
+  posts?: FeaturedPostsProps;
+  setPostLists: React.Dispatch<React.SetStateAction<FeaturedPostsProps>>;
+};
