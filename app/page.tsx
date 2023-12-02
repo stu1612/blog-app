@@ -11,7 +11,9 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <MainContent posts={posts} />
+      <Suspense fallback="loading...">
+        <MainContent posts={posts} />
+      </Suspense>
     </>
   );
 }

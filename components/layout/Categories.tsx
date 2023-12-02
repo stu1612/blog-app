@@ -12,8 +12,18 @@ export type Props = {
   setPostLists: React.Dispatch<React.SetStateAction<FeaturedPostsProps>>;
 };
 
-export default function Categories({ posts, setPostLists }: Props) {
-  const { categoryList } = useCategoryList({ posts: posts || [] });
+async function filterCategories({ posts }: FeaturedPostsProps) {
+  if (posts && posts.length > 0) {
+    const categories = posts?.map((post) => post.categories[0]?.name || []);
+    const uniqueList = [...new Set(categories)];
+    return uniqueList;
+  }
+}
+
+export default async function Categories({ posts, setPostLists }: Props) {
+  // const { categoryList } = useCategoryList({ posts: posts || [] });
+
+  const categories = await filterCategories({ posts });
 
   const filterPostsByCategory = (selectedCategory: string) => {
     const categoryLower = selectedCategory.toLowerCase();
@@ -38,8 +48,17 @@ export default function Categories({ posts, setPostLists }: Props) {
       {/* {categoryList?.map((category: CategoryType, index: number) => (
         <CategoryItem key={index} category={category} />
       ))} */}
-      {categoryList?.map((category, index) => (
-        // <CategoryItem key={index} category={category} />
+      {/* <CategoryItem key={index} category={category} /> */}
+      {/* {categoryList?.map((category, index) => (
+        <p
+          className="bg-sky dark:bg-ocean py-2 px-4 rounded-lg text-black font-medium text-sm lowercase cursor-pointer"
+          onClick={() => filterPostsByCategory(category)}
+          key={index}
+        >
+          {category}
+        </p>
+      ))} */}
+      {categories?.map((category: any, index) => (
         <p
           className="bg-sky dark:bg-ocean py-2 px-4 rounded-lg text-black font-medium text-sm lowercase cursor-pointer"
           onClick={() => filterPostsByCategory(category)}

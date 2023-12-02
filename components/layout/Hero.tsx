@@ -25,10 +25,12 @@ export default function Hero() {
       <div className="grid grid-cols-gallery my-20">
         <figure className="relative h-[400px]">
           <Image
-            src="/images/software-development.jpg"
+            src="/software-development.jpg"
             alt="computer on a desk showing a code IDE and some content of a blog article"
             fill
             style={{ objectFit: "cover" }}
+            priority={true}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </figure>
         <div className="flex-col flex-start sm:px-6 md:flex-center lg:px-12">

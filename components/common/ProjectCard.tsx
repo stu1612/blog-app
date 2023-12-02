@@ -17,6 +17,7 @@ export default function ProjectCard({ img, title }: Props) {
             fill
             style={{ objectFit: "cover" }}
             className="rounded-none lg:rounded-full"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </figure>
         <div className="flex flex-col">

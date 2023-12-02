@@ -14,6 +14,7 @@ export default function BlogCard({ post }: { post: FeaturedPost }) {
           alt={post.title}
           fill
           style={{ objectFit: "cover" }}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </figure>
       <div className="flex-evenly-start flex-col px-5 py-10 sm:px-6 lg:px-12 bg-light-10 dark:bg-[#1B2430]">
