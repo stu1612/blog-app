@@ -1,6 +1,5 @@
 "use client";
 
-// npm
 import Image from "next/image";
 
 import useNavContext from "@/hooks/useNavContext";

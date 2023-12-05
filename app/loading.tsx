@@ -1,3 +1,5 @@
+import SkeletonHomeLayout from "@/components/skeleton/SkeletonHomeLayout";
+
 export default function Loading() {
-  return <div>we are loading ...</div>;
+  return <SkeletonHomeLayout />;
 }

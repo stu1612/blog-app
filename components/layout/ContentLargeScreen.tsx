@@ -3,6 +3,7 @@ import { FeaturedPost } from "@/types";
 import BlogCard from "../common/BlogCard";
 import Categories from "./Categories";
 import { Suspense } from "react";
+import SkeletonLayout from "../skeleton/SkeletonBlogsLayout";
 
 export default function ContentLargeScreen({
   posts = [],
