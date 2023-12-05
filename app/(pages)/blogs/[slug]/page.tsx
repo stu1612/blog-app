@@ -5,16 +5,14 @@ import CategoryList from "@/components/layout/CategoryList";
 import { GRAPHQL_ENDPOINT } from "@/config";
 import { FeaturedPostsProps } from "@/types";
 import BlogCard from "@/components/common/BlogCard";
+import ContentLargeScreen from "@/components/layout/ContentLargeScreen";
+import ContentSmallScreen from "@/components/layout/ContentSmallScreen";
 
 interface BlogPost {
   params: {
     slug: string;
   };
 }
-
-type Props = {
-  title: string;
-};
 
 async function getPostsByCategory(categorySlug: string) {
   try {
@@ -68,17 +66,12 @@ export default async function Blogs({ params }: BlogPost) {
   const { slug } = params;
 
   const posts = await getPostsByCategory(slug);
-  console.log("category posts ", posts);
 
   return (
-    <section>
-      <h1>Blogs</h1>
-      <CategoryList />
-      <div>
-        {posts?.map((post: any) => (
-          <BlogCard post={post} key={post.id} />
-        ))}
-      </div>
+    <section className="padding-container w-full">
+      <h2 className="font-h2">Check out my blogs related to {slug} !</h2>
+      <ContentSmallScreen posts={posts} />
+      <ContentLargeScreen posts={posts} />
     </section>
   );
 }

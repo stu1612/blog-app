@@ -5,6 +5,8 @@ import { getBlogs, getCategories } from "@/services";
 import { fetchGraphQL } from "@/services/api";
 import { FeaturedPostsProps } from "@/types";
 import { GRAPHQL_ENDPOINT } from "@/config";
+import ContentLargeScreen from "@/components/layout/ContentLargeScreen";
+import ContentSmallScreen from "@/components/layout/ContentSmallScreen";
 
 async function getAllBlogs() {
   try {
@@ -52,17 +54,12 @@ async function getAllBlogs() {
 
 export default async function Blogs() {
   const posts = await getAllBlogs();
-  console.log("category posts ", posts);
 
   return (
-    <section>
-      <h1>Blogs</h1>
-      <CategoryList />
-      <div>
-        {posts?.map((post: any) => (
-          <BlogCard post={post} key={post.id} />
-        ))}
-      </div>
+    <section className="padding-container w-full">
+      <h2 className="font-h2">Check out all my blogs right here !</h2>
+      <ContentSmallScreen posts={posts} />
+      <ContentLargeScreen posts={posts} />
     </section>
   );
 }

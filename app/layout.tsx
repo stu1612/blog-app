@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 // import { NavContextProvider } from "@/context/NavContext";
 import Footer from "@/components/layout/Footer";
 import { Providers } from "./_providers";
+import { Suspense } from "react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,17 +33,15 @@ export default function RootLayout({
       <body
         className={`${poppins.className} bg-light-30 dark:bg-dark-100 text-black dark:text-white`}
       >
-        {/* <ThemeProvider attribute="class" enableSystem={true}>
-          <NavContextProvider> */}
         <Providers>
           <Navbar />
-          <main className="relative overflow-x-hidden py-[100px] w-appWidth mx-auto">
-            {children}
-          </main>
+          <Suspense fallback="We are loading ....">
+            <main className="relative overflow-x-hidden py-[100px] w-appWidth mx-auto">
+              {children}
+            </main>
+          </Suspense>
           <Footer />
         </Providers>
-        {/* </NavContextProvider>
-        </ThemeProvider> */}
       </body>
     </html>
   );
