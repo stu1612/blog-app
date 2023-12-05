@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { NavContext } from "@/context/NavContext";
+// import { NavContext } from "@/context/NavContext";
+import { NavContext } from "@/app/_providers/Navbar";
 
 export default function useNavContext() {
   const context = useContext(NavContext);

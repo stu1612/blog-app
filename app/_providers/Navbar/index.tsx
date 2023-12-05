@@ -16,7 +16,7 @@ const initState = false;
 
 export const NavContext = createContext<ContextType | undefined>(undefined);
 
-export const NavContextProvider = ({ children }: ChildrenProps) => {
+export const NavProvider = ({ children }: ChildrenProps) => {
   // state
   const [isOpen, setIsOpen] = useState(initState);
 

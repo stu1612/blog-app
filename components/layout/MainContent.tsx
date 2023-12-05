@@ -15,10 +15,8 @@ export default function MainContent({ posts }: FeaturedPostsProps) {
     // <CategoryContextProvider posts={posts}>
     <section className="padding-container w-full">
       <h2 className="font-h2">Recent Blogs</h2>
-      <Suspense fallback={<Loading />}>
-        <ContentSmallScreen posts={posts} />
-        <ContentLargeScreen posts={posts} />
-      </Suspense>
+      <ContentSmallScreen posts={posts} />
+      <ContentLargeScreen posts={posts} />
     </section>
     // </CategoryContextProvider>
   );

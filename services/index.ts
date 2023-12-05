@@ -26,6 +26,36 @@ export const featuredBlogs = gql`
   }
 `;
 
+export const getBlogs = gql`
+  query Posts {
+    posts {
+      createdAt
+      excerpt
+      id
+      slug
+      title
+      image {
+        url
+      }
+      categories {
+        name
+        id
+        slug
+      }
+    }
+  }
+`;
+
+export const getCategories = gql`
+  query Categories {
+    categories {
+      id
+      name
+      slug
+    }
+  }
+`;
+
 export const getBlogPostBySlug = gql`
   query Post($slug: String!) {
     post(where: { slug: $slug }) {
@@ -39,6 +69,28 @@ export const getBlogPostBySlug = gql`
       }
       content {
         raw
+      }
+      categories {
+        id
+        slug
+        name
+      }
+    }
+  }
+`;
+
+export const getPostsByCategory = gql`
+  query PostsByCategory($categorySlug: String!) {
+    posts(where: { categories_some: { slug: $categorySlug } }) {
+      createdAt
+      excerpt
+      id
+      publishedAt
+      slug
+      title
+      updatedAt
+      image {
+        url
       }
       categories {
         id

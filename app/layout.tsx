@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/themes/ThemeProvider";
+// import { ThemeProvider } from "@/components/themes/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
-import { NavContextProvider } from "@/context/NavContext";
+// import { NavContextProvider } from "@/context/NavContext";
 import Footer from "@/components/layout/Footer";
+import { Providers } from "./_providers";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,20 +27,22 @@ export default function RootLayout({
       lang="en"
       style={{ colorScheme: "light" }}
       className="light"
-      suppressHydrationWarning={true}
+      suppressHydrationWarning
     >
       <body
         className={`${poppins.className} bg-light-30 dark:bg-dark-100 text-black dark:text-white`}
       >
-        <ThemeProvider attribute="class" enableSystem={true}>
-          <NavContextProvider>
-            <Navbar />
-            <main className="relative overflow-x-hidden py-[100px] w-appWidth mx-auto">
-              {children}
-            </main>
-            <Footer />
-          </NavContextProvider>
-        </ThemeProvider>
+        {/* <ThemeProvider attribute="class" enableSystem={true}>
+          <NavContextProvider> */}
+        <Providers>
+          <Navbar />
+          <main className="relative overflow-x-hidden py-[100px] w-appWidth mx-auto">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
+        {/* </NavContextProvider>
+        </ThemeProvider> */}
       </body>
     </html>
   );
