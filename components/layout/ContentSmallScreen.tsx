@@ -2,7 +2,7 @@ import BlogCard from "../common/BlogCard";
 // import CategoryItem from "../common/CategoryItem";
 import { FeaturedPost, FeaturedPostsProps } from "@/types";
 import ProjectsList from "./ProjectsList";
-import useCategoryContext from "@/hooks/useCategoryContext";
+// import useCategoryContext from "@/hooks/useCategoryContext";
 
 // interface iFeaturedPosts {
 //   posts?: FeaturedPost[];
