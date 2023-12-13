@@ -23,7 +23,18 @@ export default function ThemeToggler() {
         id="switch"
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       />
-      <span className="slider"></span>
+
+      <span
+        className={`slider ${
+          theme === "dark" ? "bg-[#6f6f6f]" : "bg-[#ffc739]"
+        }`}
+      >
+        <span
+          className={`slider-thumb ${
+            theme === "dark" ? "bg-white" : "bg-[#ffc739]"
+          }`}
+        ></span>
+      </span>
     </label>
   );
 }

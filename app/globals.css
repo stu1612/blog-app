@@ -79,7 +79,7 @@ menu {
   position: absolute;
   cursor: pointer;
   inset: 0;
-  background: #6f6f6f;
+  /* background: #6f6f6f; */
   border-radius: 50px;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -97,12 +97,24 @@ menu {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.switch input:checked + .slider {
-  background: #ffc739;
+.slider-thumb {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  left: 0.3em;
+  bottom: 0.3em;
+  border-radius: 50px;
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.switch input:focus + .slider {
-  box-shadow: 0 0 1px #ce914f;
+/* Additional styles for checked state */
+.switch input:checked + .slider .slider-thumb {
+  transform: translateX(1.6em);
+  width: 2em;
+  height: 2em;
+  bottom: 0;
 }
 
 .switch input:checked + .slider:before {
