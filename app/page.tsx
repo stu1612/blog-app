@@ -14,7 +14,7 @@ export default async function Home() {
     <>
       <Hero />
       <section className="padding-container w-full">
-        <h2 className="font-h2">Recent Blogs</h2>
+        <h2 className="hidden md:block font-h2">Recent Blogs</h2>
         <ContentSmallScreen posts={posts} />
         <ContentLargeScreen posts={posts} />
       </section>

@@ -244,6 +244,10 @@ menu {
     @apply bg-gradient-to-r from-rose-100 to-teal-100;
   }
 
+  .bg-midnight {
+    @apply bg-gradient-to-tl from-blue-700 via-blue-800 to-gray-900;
+  }
+
   /* transitions */
   .custom-transition {
     @apply transition-all duration-300 ease-out;

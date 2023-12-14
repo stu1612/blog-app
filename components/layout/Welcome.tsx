@@ -1,3 +1,5 @@
+import Button from "../common/Button";
+
 export default function Welcome() {
   return (
     <div>
@@ -12,7 +14,7 @@ export default function Welcome() {
           to collaborate together or would like me to build a test application
           to help your learnign please reach out.
         </p>
-        <button>Contact me</button>
+        <Button text="Contact me" />
       </div>
     </div>
   );
