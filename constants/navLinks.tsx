@@ -1,13 +1,6 @@
-// import { React } from "react";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 
-interface iSocialLinks {
-  id: number;
-  url: string;
-  icon: React.ReactElement;
-}
-
-export const socialLinks: iSocialLinks[] = [
+export const socialLinks = [
   {
     id: 1,
     url: "https://www.linkedin.com/in/stuartbolderson/",

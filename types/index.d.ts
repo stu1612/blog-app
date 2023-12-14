@@ -53,3 +53,9 @@ export type CategoriesProps = {
   posts?: FeaturedPostsProps;
   setPostLists: React.Dispatch<React.SetStateAction<FeaturedPostsProps>>;
 };
+
+export type SocialProps = {
+  id: number;
+  url: string;
+  icon: React.ReactElement;
+};

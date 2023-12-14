@@ -1,5 +1,4 @@
-import { IoLogoGithub } from "react-icons/io5";
-import { IoLogoLinkedin } from "react-icons/io5";
+import SocialIcons from "../common/SocialIcons";
 
 export default function Footer() {
   return (
@@ -10,23 +9,8 @@ export default function Footer() {
         </div>
         <ul className="flex flex-row items-center">
           <li>stu.bolderson@aol.com</li>
-          <li className="mx-3">
-            <a
-              href="https://github.com/stu1612"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <IoLogoGithub size={26} />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/stuartbolderson/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <IoLogoLinkedin size={26} />
-            </a>
+          <li className="mx-3 flex">
+            <SocialIcons />
           </li>
         </ul>
       </div>

@@ -1,7 +1,8 @@
 import Link from "next/link";
 
-import { navLinks, socialLinks } from "@/constants/navLinks";
+import { navLinks } from "@/constants/navLinks";
 import Burger from "../common/Burger";
+import SocialIcons from "../common/SocialIcons";
 
 import useNavContext from "@/hooks/useNavContext";
 import ThemeToggler from "@/app/_providers/Theme/ThemeSelector";
@@ -16,17 +17,7 @@ export default function NavbarLarge() {
       } `}
     >
       <ul className="hidden flex-1 md:flex">
-        {socialLinks.map((sLink) => (
-          <a
-            href={sLink.url}
-            key={sLink.id}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mr-2"
-          >
-            {sLink.icon}
-          </a>
-        ))}
+        <SocialIcons />
       </ul>
       <div>
         <Link href="/">
