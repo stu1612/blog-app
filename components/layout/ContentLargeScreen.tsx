@@ -1,4 +1,4 @@
-import LargeScreenProjectsList from "./LargeScreenProjectsList";
+import Projects from "./ProjectsLargeScreen";
 import { FeaturedPost } from "@/types";
 import BlogCard from "../common/BlogCard";
 import Categories from "./Categories";
@@ -19,7 +19,7 @@ export default function ContentLargeScreen({
       </div>
       <div className="grid-side px-12">
         <Categories />
-        <LargeScreenProjectsList />
+        <Projects />
       </div>
     </div>
   );

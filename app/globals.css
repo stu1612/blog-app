@@ -212,7 +212,7 @@ menu {
   }
 
   .font-h2 {
-    @apply text-xl lg:text-2xl xl:text-4xl font-semibold;
+    @apply text-2xl lg:text-3xl xl:text-4xl font-semibold;
   }
 
   .font-h3 {
@@ -224,7 +224,7 @@ menu {
   }
 
   .clip-text {
-    @apply inline-block text-transparent bg-clip-text;
+    @apply text-transparent bg-clip-text;
   }
 
   /* bg gradients */

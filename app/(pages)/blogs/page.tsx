@@ -57,7 +57,7 @@ export default async function Blogs() {
 
   return (
     <section className="padding-container w-full">
-      <h2 className="font-h2">Check out all my blogs right here !</h2>
+      {/* <h2 className="font-h2">Check out all my blogs right here !</h2> */}
       <ContentSmallScreen posts={posts} />
       <ContentLargeScreen posts={posts} />
     </section>

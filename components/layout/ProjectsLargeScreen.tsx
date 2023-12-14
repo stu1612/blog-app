@@ -1,7 +1,7 @@
 import ProjectCard from "../common/ProjectCard";
 import fetchGithubAPI from "@/utils/fetchGithubApi";
 
-export default async function LargeScreenProjectsList() {
+export default async function ProjectsLargeScreen() {
   const projects = await fetchGithubAPI();
 
   return (
