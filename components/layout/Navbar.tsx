@@ -11,8 +11,8 @@ export default function Navbar() {
   return (
     <header>
       <nav
-        className={`bg-light-30 dark:bg-dark-100 z-10 padding-container fixed h-[80px] ${
-          isOpen ? "w-[80%] right-0 md:w-full " : "w-full "
+        className={`bg-light-30 dark:bg-dark-100 padding-container fixed h-[80px] z-[999] ${
+          isOpen ? "w-[80%] right-0 md:w-full bg-light-10 " : "w-full "
         }`}
       >
         <NavbarLarge />

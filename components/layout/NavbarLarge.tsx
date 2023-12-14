@@ -20,7 +20,7 @@ export default function NavbarLarge() {
         <SocialIcons />
       </ul>
       <div>
-        <Link href="/">
+        <Link href="/" className={`${isOpen ? "hidden" : "block"} `}>
           <h1 className="font-semibold text-lg lg:text-xl">stuBlog</h1>
         </Link>
       </div>

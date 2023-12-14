@@ -56,16 +56,16 @@ export const mobileNavLinks = [
     href: "/contact",
     link: null,
   },
-  {
-    id: 5,
-    title: "Linkedin",
-    href: undefined,
-    link: "https://www.linkedin.com/in/stuartbolderson/",
-  },
-  {
-    id: 6,
-    title: "Github",
-    href: undefined,
-    link: "https://github.com/stu1612",
-  },
+  // {
+  //   id: 5,
+  //   title: "Linkedin",
+  //   href: undefined,
+  //   link: "https://www.linkedin.com/in/stuartbolderson/",
+  // },
+  // {
+  //   id: 6,
+  //   title: "Github",
+  //   href: undefined,
+  //   link: "https://github.com/stu1612",
+  // },
 ];
