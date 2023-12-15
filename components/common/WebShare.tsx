@@ -36,7 +36,7 @@ export default function WebShare({ post }: { post: PostProps }) {
     if (navigator.share) {
       // const imageUrl = post?.image?.url;
 
-      const imageUrl = "https://www.example.com/images/sample.jpg";
+      const imageUrl = "https://source.unsplash.com/random/300x200";
 
       try {
         const response = await fetch(imageUrl, { mode: "no-cors" });
