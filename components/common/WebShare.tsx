@@ -37,36 +37,25 @@ export default function WebShare({ post }: { post: PostProps }) {
       const imageUrl = post?.image?.url;
       console.log("imageUrl ", imageUrl);
 
-      try {
-        if (!imageUrl) {
-          return;
-        }
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
 
-        const response = await fetch(imageUrl);
-        const blob = await response.blob();
+      const file = new File([blob], "image.jpg", {
+        lastModified: new Date().getTime(),
+        type: "image/jpeg",
+      });
 
-        const filename = imageUrl.split("/").pop() ?? "/images/git_1.jpg";
+      console.log("file ", file);
 
-        // Create a File object from the Blob
-        const file = new File([blob], filename, {
-          lastModified: new Date().getTime(),
-          type: blob.type,
-        });
-
-        console.log("file ", file);
-
-        navigator
-          .share({
-            title: post?.title,
-            text: post?.excerpt,
-            url: typeof window !== "undefined" ? window.location.href : "",
-            files: [file],
-          })
-          .then(() => console.log("shared"))
-          .catch((err) => console.log("Error ", err));
-      } catch (error) {
-        console.error("Error fetching or converting image to Blob:", error);
-      }
+      navigator
+        .share({
+          title: post?.title,
+          text: post?.excerpt,
+          url: typeof window !== "undefined" ? window.location.href : "",
+          files: [file],
+        })
+        .then(() => console.log("shared"))
+        .catch((err) => console.log("Error ", err));
     }
   };
 
@@ -76,3 +65,11 @@ export default function WebShare({ post }: { post: PostProps }) {
     </div>
   );
 }
+
+// const filename = imageUrl.split("/").pop() ?? "/images/git_1.jpg";
+
+// Create a File object from the Blob
+// const file = new File([blob], "image.jpg", {
+//   lastModified: new Date().getTime(),
+//   type: blob.type,
+// });
