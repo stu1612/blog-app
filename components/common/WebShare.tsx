@@ -39,7 +39,7 @@ export default function WebShare({ post }: { post: PostProps }) {
       const imageUrl = "https://via.placeholder.com/300";
 
       try {
-        const response = await fetch(imageUrl);
+        const response = await fetch(imageUrl, { mode: "no-cors" });
         const blob = await response.blob();
 
         // Create a File object from the Blob
