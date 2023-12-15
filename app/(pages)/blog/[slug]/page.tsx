@@ -13,11 +13,22 @@ type BlogPost = {
 export default async function Blog({ params }: BlogPost) {
   const { slug } = params;
 
-  const blogPost = await fetchGraphQL(getBlogPostBySlug, slug);
+  const { post } = await fetchGraphQL(getBlogPostBySlug, slug);
 
   return (
     <>
       <section className="w-appWidth padding-container">
+        <h1 className="font-h2 py-6">{post?.title}</h1>
+        <Suspense fallback={"Loading .."}>
+          {post?.content && (
+            <CMSRichText
+              content={post?.content?.raw}
+              // references={blogPost?.content?.raw}
+            />
+          )}
+        </Suspense>
+      </section>
+      {/* <section className="w-appWidth padding-container">
         <h1 className="font-h2 py-6">{blogPost?.post.title}</h1>
         <Suspense fallback={"Loading .."}>
           {blogPost?.post?.content && (
@@ -27,11 +38,10 @@ export default async function Blog({ params }: BlogPost) {
             />
           )}
         </Suspense>
-      </section>
-      {/* <button className="bg-red-500 p-2 fixed bottom-[20%] right-[8%]">
-        Share
-      </button> */}
-      <WebShare />
+      </section> */}
+
+      {/* <WebShare blogPost={blogPost} /> */}
+      <WebShare post={post} />
     </>
   );
 }
