@@ -15,6 +15,8 @@ export default async function Blog({ params }: BlogPost) {
 
   const { post } = await fetchGraphQL(getBlogPostBySlug, slug);
 
+  console.log(post);
+
   return (
     <>
       <section className="w-appWidth padding-container">

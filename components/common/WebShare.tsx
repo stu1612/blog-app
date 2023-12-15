@@ -34,16 +34,21 @@ export default function WebShare({ post }: { post: PostProps }) {
   // };
   const handleClick = async () => {
     if (navigator.share) {
-      // const imageUrl = post?.image?.url;
-
-      const imageUrl = "https://source.unsplash.com/random/300x200";
+      const imageUrl = post?.image?.url;
+      console.log("imageUrl ", imageUrl);
 
       try {
-        const response = await fetch(imageUrl, { mode: "no-cors" });
+        if (!imageUrl) {
+          return;
+        }
+
+        const response = await fetch(imageUrl);
         const blob = await response.blob();
 
+        const filename = imageUrl.split("/").pop() ?? "/images/git_1.jpg";
+
         // Create a File object from the Blob
-        const file = new File([blob], imageUrl, {
+        const file = new File([blob], filename, {
           lastModified: new Date().getTime(),
           type: blob.type,
         });
