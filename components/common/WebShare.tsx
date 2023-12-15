@@ -34,7 +34,9 @@ export default function WebShare({ post }: { post: PostProps }) {
   // };
   const handleClick = async () => {
     if (navigator.share) {
-      const imageUrl = post?.image?.url;
+      // const imageUrl = post?.image?.url;
+
+      const imageUrl = "https://via.placeholder.com/300";
 
       try {
         const response = await fetch(imageUrl);
@@ -45,6 +47,8 @@ export default function WebShare({ post }: { post: PostProps }) {
           lastModified: new Date().getTime(),
           type: blob.type,
         });
+
+        console.log("file ", file);
 
         navigator
           .share({
