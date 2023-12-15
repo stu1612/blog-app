@@ -41,7 +41,7 @@ export default function WebShare({ post }: { post: PostProps }) {
         const blob = await response.blob();
 
         // Create a File object from the Blob
-        const file = new File([blob], "image.jpg", {
+        const file = new File([blob], imageUrl, {
           lastModified: new Date().getTime(),
           type: blob.type,
         });
