@@ -6,6 +6,7 @@ import ContentLargeScreen from "@/components/layout/ContentLargeScreen";
 import ContentSmallScreen from "@/components/layout/ContentSmallScreen";
 import { Suspense } from "react";
 import SkeletonHomeLayout from "@/components/skeleton/SkeletonHomeLayout";
+import SectionLayout from "@/components/layout/SectionLayout";
 
 export default async function Home() {
   const { posts } = await fetchGraphQL(featuredBlogs);
@@ -13,11 +14,10 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <section className="padding-container w-full">
-        <h2 className="hidden md:block font-h2">Recent Blogs</h2>
+      <SectionLayout title="Recent Featured Blogs">
         <ContentSmallScreen posts={posts} />
         <ContentLargeScreen posts={posts} />
-      </section>
+      </SectionLayout>
     </>
   );
 }

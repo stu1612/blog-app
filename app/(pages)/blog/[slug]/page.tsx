@@ -14,8 +14,8 @@ export default async function Blog({ params }: BlogPost) {
 
   const blogPost = await fetchGraphQL(getBlogPostBySlug, slug);
   return (
-    <section>
-      <h1>{blogPost?.post.title}</h1>
+    <section className="w-appWidth padding-container">
+      <h1 className="font-h2 py-6">{blogPost?.post.title}</h1>
       <Suspense fallback={"Loading .."}>
         {blogPost?.post?.content && (
           <CMSRichText

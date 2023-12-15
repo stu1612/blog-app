@@ -7,7 +7,7 @@ export default function Welcome() {
         Welcome, to my Blog site ✋
       </h3>
       <div className="flex flex-row gap-5 flex-wrap py-10 ">
-        <p className="font-normal text-sm">
+        <p className="font-normal font-p">
           I hope you find my blog articles of interest, my goal is to test
           myself learning new things, improve my understanding of current trends
           whilst having fun coding ! If you have any advice for me, would like

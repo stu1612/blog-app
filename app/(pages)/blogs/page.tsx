@@ -7,6 +7,7 @@ import { FeaturedPostsProps } from "@/types";
 import { GRAPHQL_ENDPOINT } from "@/config";
 import ContentLargeScreen from "@/components/layout/ContentLargeScreen";
 import ContentSmallScreen from "@/components/layout/ContentSmallScreen";
+import SectionLayout from "@/components/layout/SectionLayout";
 
 async function getAllBlogs() {
   try {
@@ -56,10 +57,9 @@ export default async function Blogs() {
   const posts = await getAllBlogs();
 
   return (
-    <section className="padding-container w-full">
-      {/* <h2 className="font-h2">Check out all my blogs right here !</h2> */}
+    <SectionLayout title="All Blogs">
       <ContentSmallScreen posts={posts} />
       <ContentLargeScreen posts={posts} />
-    </section>
+    </SectionLayout>
   );
 }

@@ -9,7 +9,7 @@ import { truncateString } from "@/utils/truncateString";
 export default function BlogCard({ post }: { post: FeaturedPost }) {
   return (
     <Link
-      href={`/blogs/${post.slug}`}
+      href={`/blog/${post.slug}`}
       className="text-sm transition duration-300 ease-in-out hover:underline hover:underline-offset-4"
     >
       <div className="grid grid-rows-2 sm:grid-cols-2 sm:grid-rows-1 h-[600px] md:h-[300px] ">
@@ -28,8 +28,8 @@ export default function BlogCard({ post }: { post: FeaturedPost }) {
             <span>{post?.categories[0].name}</span>
           </p>
           <h3 className="font-h3">{post.title}</h3>
-          <p className="text-sm">{truncateString(post?.excerpt, 100)}</p>
-          <p className="text-sm">Read more</p>
+          <p className="text-base">{truncateString(post?.excerpt, 80)}</p>
+          <p className="text-sm text-zinc-700">Read more</p>
         </div>
       </div>
     </Link>

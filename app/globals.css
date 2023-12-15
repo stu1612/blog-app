@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --bg: #fff;
-  --textColor: #181818;
-  --softBg: #f0f0f0;
-  --softTextColor: #626262;
-} */
-
 * {
   padding: 0;
   margin: 0;

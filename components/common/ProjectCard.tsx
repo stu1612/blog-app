@@ -15,7 +15,7 @@ type Props = {
 
 export default function ProjectCard({ project, index }: Props) {
   return (
-    <a href={`${project?.html_url}`} target="_blank">
+    <a href={`${project?.html_url}`} target="_blank" className="group">
       <div className="flex flex-row justify-start items-center ">
         <figure className="relative h-[150px] w-[150px] lg:h-[80px] lg:w-[80px] mr-3">
           <Image
@@ -28,7 +28,9 @@ export default function ProjectCard({ project, index }: Props) {
           />
         </figure>
         <div className="flex flex-col">
-          <p>{project?.name}</p>
+          <p className="font-p transition ease-in-out duration-300 group-hover:underline group-hover:underline-offset-4">
+            {project?.name}
+          </p>
           <small className="block text-sm underline underline-offset-4 lg:hidden">
             Read more
           </small>
