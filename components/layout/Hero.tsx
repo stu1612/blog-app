@@ -18,7 +18,7 @@ export default function Hero() {
           covering a range of{" "}
           <span className="font-black bg-hyper clip-text">frontend</span> and{" "}
           <span className="font-black bg-emerald clip-text">fullstack</span>{" "}
-          topics.{" "}
+          topics / Test.{" "}
         </h1>
       </div>
       <div className="grid grid-cols-gallery my-20">

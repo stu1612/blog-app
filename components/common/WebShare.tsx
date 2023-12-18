@@ -35,7 +35,7 @@ export default function WebShare({ post }: { post: PostProps }) {
           files: [file],
         });
       } catch (err) {
-        console.log(err, " error");
+        console.error(err, " error");
       }
     }
   };
