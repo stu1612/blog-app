@@ -23,51 +23,44 @@ export default function WebShare({ post }: { post: PostProps }) {
   const handleClick = async () => {
     const imageUrl = post?.image?.url;
 
-    try {
-      const response = await fetch(imageUrl);
-      const blob = await response.blob();
-      const file = new File([blob], "image.jpg", { type: "image/jpeg" });
-
-      // Prepare data for sharing files
-      const dataFiles = { files: [file] };
-
-      // Check if it's Safari
-      const IS_SAFARI = isSafari();
-
-      // Prepare data for sharing text
-      const dataText = {
-        files: [],
-        text: post?.excerpt,
-        url: typeof window !== "undefined" ? window.location.href : "",
-        title: post?.title,
-      };
-
-      // Share files first
-      await navigator.share(dataFiles);
-
-      // Share text as a separate request if it's Safari
-      if (IS_SAFARI) {
-        await navigator.share(dataText);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-
     // try {
     //   const response = await fetch(imageUrl);
     //   const blob = await response.blob();
     //   const file = new File([blob], "image.jpg", { type: "image/jpeg" });
-    //   await navigator.share({
-    //     title: post?.title,
+
+    //   const dataFiles = { files: [file] };
+
+    //   const IS_SAFARI = isSafari();
+
+    //   const dataText = {
+    //     files: [],
     //     text: post?.excerpt,
     //     url: typeof window !== "undefined" ? window.location.href : "",
-    //   });
-    //   await navigator.share({
-    //     files: [file],
-    //   });
+    //     title: post?.title,
+    //   };
+
+    //   await navigator.share(dataFiles);
+
+    //   if (IS_SAFARI) {
+    //     await navigator.share(dataText);
+    //   }
     // } catch (err) {
     //   console.log(err);
     // }
+
+    try {
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      const file = new File([blob], "image.jpg", { type: "image/jpeg" });
+      await navigator.share({
+        title: post?.title,
+        text: post?.excerpt,
+        url: imageUrl,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+
     // if (navigator.share) {
     //   const imageUrl = post?.image?.url;
 
