@@ -51,11 +51,13 @@ export default function WebShare({ post }: { post: PostProps }) {
     try {
       const response = await fetch(imageUrl);
       const blob = await response.blob();
-      const file = new File([blob], "image.jpg", { type: "image/jpeg" });
+      let name = Date.now() + `${post.title}.jpg`;
+      const file = new File([blob], name, { type: "image/jpeg" });
       await navigator.share({
         title: post?.title,
         text: post?.excerpt,
-        url: imageUrl,
+        url: typeof window !== "undefined" ? window.location.href : "",
+        files: [file],
       });
     } catch (err) {
       console.log(err);
