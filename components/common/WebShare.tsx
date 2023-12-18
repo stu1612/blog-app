@@ -18,46 +18,66 @@ type PostProps = {
 };
 
 export default function WebShare({ post }: { post: PostProps }) {
-  // const handleClick = () => {
+  const handleClick = async () => {
+    const imageUrl = post?.image?.url;
+    const response = await fetch(imageUrl);
+    const blob = await response.blob();
+    const file = new File([blob], "image.jpg", { type: "image/jpeg" });
+
+    try {
+      await navigator.share({
+        title: post?.title,
+        text: post?.excerpt,
+        url: typeof window !== "undefined" ? window.location.href : "",
+      });
+      await navigator.share({
+        files: [file],
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    // if (navigator.share) {
+    //   const imageUrl = post?.image?.url;
+
+    //   const response = await fetch(imageUrl);
+    //   const blob = await response.blob();
+
+    //   const file = new File([blob], "image.jpg", { type: "image/jpeg" });
+
+    //   await navigator
+    //     .share({
+    //       title: post?.title,
+    //       text: post?.excerpt,
+    //       url: typeof window !== "undefined" ? window.location.href : "",
+    //       files: [file],
+    //     })
+    //     .then(() => console.log("shared"))
+    //     .catch((err) => console.log("Error ", err));
+    // }
+  };
+  // const handleClick = async () => {
   //   if (navigator.share) {
   //     const imageUrl = post?.image?.url;
-  //     navigator
+  //     console.log("imageUrl ", imageUrl);
+
+  //     const response = await fetch(imageUrl);
+  //     const blob = await response.blob();
+
+  //     const file = new File([blob], "image.jpg", { type: "image/jpeg" });
+
+  //     console.log("file ", file);
+
+  //     await navigator
   //       .share({
   //         title: post?.title,
   //         text: post?.excerpt,
   //         url: typeof window !== "undefined" ? window.location.href : "",
-  //         files: [imageUrl],
+  //         files: [file],
   //       })
   //       .then(() => console.log("shared"))
   //       .catch((err) => console.log("Error ", err));
   //   }
   // };
-  const handleClick = async () => {
-    if (navigator.share) {
-      const imageUrl = post?.image?.url;
-      console.log("imageUrl ", imageUrl);
-
-      const response = await fetch(imageUrl);
-      const blob = await response.blob();
-
-      const file = new File([blob], "image.jpg", {
-        lastModified: new Date().getTime(),
-        type: "image/jpeg",
-      });
-
-      console.log("file ", file);
-
-      navigator
-        .share({
-          title: post?.title,
-          text: post?.excerpt,
-          url: typeof window !== "undefined" ? window.location.href : "",
-          files: [file],
-        })
-        .then(() => console.log("shared"))
-        .catch((err) => console.log("Error ", err));
-    }
-  };
 
   return (
     <div className="fixed bottom-[20%] right-[8%]" onClick={handleClick}>
