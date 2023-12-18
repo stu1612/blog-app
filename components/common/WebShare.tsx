@@ -21,40 +21,60 @@ type PostProps = {
 
 export default function WebShare({ post }: { post: PostProps }) {
   const handleClick = async () => {
-    const imageUrl = post?.image?.url;
+    if ("canShare" in navigator) {
+      try {
+        const imageUrl = post?.image?.url;
+        const response = await fetch(imageUrl);
+        const blob = await response.blob();
+        const file = new File([blob], "image.jpg", { type: "image/jpeg" });
 
-    const sharedData = {
-      title: post?.title,
-      text: post?.excerpt,
-      url: typeof window !== "undefined" ? window.location.href : "",
-      files: [] as any,
-    };
-
-    const image = await fetch(imageUrl);
-    const blob = await image.blob();
-    const file = new File([blob], "image.jpg", { type: "image/jpeg" });
-    const filesArray = [file];
-
-    // add it to the shareData
-    sharedData.files = filesArray;
-
-    // if(navigator.share) {
-    //   try {
-    //     await navigator.share(sharedData);
-    //     console.log('🥳 Shared via API.');
-    //   } catch(error) {
-    //     console.log(`😢 ${error}`);
-    //   }
-    // } else {
-    //   // you could do a fallback solution here ...
-    //   console.log('😢 Your browser does not support the web share api.')
-    // }
-    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
-      await navigator.share(sharedData);
-    } else {
-      console.log("File sharing is not supported.");
+        await navigator.share({
+          title: "Testing..",
+          text: post?.excerpt,
+          url: typeof window !== "undefined" ? window.location.href : "",
+          files: [file],
+        });
+      } catch (err) {
+        console.log(err, " error");
+      }
     }
   };
+
+  // const image = await fetch(imageUrl);
+  // const blob = await image.blob();
+  // const file = new File([blob], "image.jpg", { type: blob.type });
+
+  // const sharedData = {
+  //   title: post?.title,
+  //   text: post?.excerpt,
+  //   url: typeof window !== "undefined" ? window.location.href : "",
+  //   files: [file],
+  // };
+
+  // add it to the shareData
+  // sharedData.files = filesArray;
+
+  // if(navigator.share) {
+  //   try {
+  //     await navigator.share(sharedData);
+  //     console.log('🥳 Shared via API.');
+  //   } catch(error) {
+  //     console.log(`😢 ${error}`);
+  //   }
+  // } else {
+  //   // you could do a fallback solution here ...
+  //   console.log('😢 Your browser does not support the web share api.')
+  // }
+  // if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+  //   await navigator
+  //     .share(sharedData)
+  //     .then(() => {
+  //       console.log("share success");
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }
   // try {
   //   const response = await fetch(imageUrl);
   //   const blob = await response.blob();
