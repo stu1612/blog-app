@@ -29,7 +29,7 @@ export default function WebShare({ post }: { post: PostProps }) {
         const file = new File([blob], "image.jpg", { type: "image/jpeg" });
 
         await navigator.share({
-          title: "Testing..",
+          title: "Testing....",
           text: post?.excerpt,
           url: typeof window !== "undefined" ? window.location.href : "",
           files: [file],
