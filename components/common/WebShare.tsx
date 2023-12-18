@@ -23,65 +23,97 @@ export default function WebShare({ post }: { post: PostProps }) {
   const handleClick = async () => {
     const imageUrl = post?.image?.url;
 
-    // try {
-    //   const response = await fetch(imageUrl);
-    //   const blob = await response.blob();
-    //   const file = new File([blob], "image.jpg", { type: "image/jpeg" });
+    const sharedData = {
+      title: post?.title,
+      text: post?.excerpt,
+      url: typeof window !== "undefined" ? window.location.href : "",
+      files: [] as any,
+    };
 
-    //   const dataFiles = { files: [file] };
+    const image = await fetch(imageUrl);
+    const blob = await image.blob();
+    const file = new File([blob], "image.jpg", { type: "image/jpeg" });
+    const filesArray = [file];
 
-    //   const IS_SAFARI = isSafari();
+    // add it to the shareData
+    sharedData.files = filesArray;
 
-    //   const dataText = {
-    //     files: [],
-    //     text: post?.excerpt,
-    //     url: typeof window !== "undefined" ? window.location.href : "",
-    //     title: post?.title,
-    //   };
-
-    //   await navigator.share(dataFiles);
-
-    //   if (IS_SAFARI) {
-    //     await navigator.share(dataText);
+    // if(navigator.share) {
+    //   try {
+    //     await navigator.share(sharedData);
+    //     console.log('🥳 Shared via API.');
+    //   } catch(error) {
+    //     console.log(`😢 ${error}`);
     //   }
-    // } catch (err) {
-    //   console.log(err);
+    // } else {
+    //   // you could do a fallback solution here ...
+    //   console.log('😢 Your browser does not support the web share api.')
     // }
-
-    // try {
-    //   const response = await fetch(imageUrl);
-    //   const blob = await response.blob();
-    //   let name = Date.now() + `${post.title}.jpg`;
-    //   const file = new File([blob], name, { type: "image/jpeg" });
-    //   await navigator.share({
-    //     title: post?.title,
-    //     text: post?.excerpt,
-    //     url: typeof window !== "undefined" ? window.location.href : "",
-    //     files: [file],
-    //   });
-    // } catch (err) {
-    //   console.log(err);
-    // }
-
-    if (navigator.share) {
-      const imageUrl = post?.image?.url;
-
-      const response = await fetch(imageUrl);
-      const blob = await response.blob();
-
-      const file = new File([blob], "image.jpg", { type: "image/jpeg" });
-
-      await navigator
-        .share({
-          title: post?.title,
-          text: post?.excerpt,
-          url: typeof window !== "undefined" ? window.location.href : "",
-          files: [file],
-        })
-        .then(() => console.log("shared"))
-        .catch((err) => console.log("Error ", err));
+    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+      await navigator.share(sharedData);
+    } else {
+      console.log("File sharing is not supported.");
     }
   };
+  // try {
+  //   const response = await fetch(imageUrl);
+  //   const blob = await response.blob();
+  //   const file = new File([blob], "image.jpg", { type: "image/jpeg" });
+
+  //   const dataFiles = { files: [file] };
+
+  //   const IS_SAFARI = isSafari();
+
+  //   const dataText = {
+  //     files: [],
+  //     text: post?.excerpt,
+  //     url: typeof window !== "undefined" ? window.location.href : "",
+  //     title: post?.title,
+  //   };
+
+  //   await navigator.share(dataFiles);
+
+  //   if (IS_SAFARI) {
+  //     await navigator.share(dataText);
+  //   }
+  // } catch (err) {
+  //   console.log(err);
+  // }
+
+  // try {
+  //   const response = await fetch(imageUrl);
+  //   const blob = await response.blob();
+  //   let name = Date.now() + `${post.title}.jpg`;
+  //   const file = new File([blob], name, { type: "image/jpeg" });
+  //   await navigator.share({
+  //     title: post?.title,
+  //     text: post?.excerpt,
+  //     url: typeof window !== "undefined" ? window.location.href : "",
+  //     files: [file],
+  //   });
+  // } catch (err) {
+  //   console.log(err);
+  // }
+
+  //   if (navigator.share) {
+  //     const imageUrl = post?.image?.url;
+
+  //     const response = await fetch(imageUrl);
+  //     const blob = await response.blob();
+
+  //     const file = new File([blob], "image.jpg", { type: "image/jpeg" });
+
+  //     await navigator
+  //       .share({
+  //         title: post?.title,
+  //         text: post?.excerpt,
+  //         url: typeof window !== "undefined" ? window.location.href : "",
+  //         files: [file],
+  //       })
+  //       .then(() => console.log("shared"))
+  //       .catch((err) => console.log("Error ", err));
+  //   }
+  // };
   // const handleClick = async () => {
   //   if (navigator.share) {
   //     const imageUrl = post?.image?.url;
