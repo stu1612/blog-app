@@ -48,39 +48,39 @@ export default function WebShare({ post }: { post: PostProps }) {
     //   console.log(err);
     // }
 
-    try {
-      const response = await fetch(imageUrl);
-      const blob = await response.blob();
-      let name = Date.now() + `${post.title}.jpg`;
-      const file = new File([blob], name, { type: "image/jpeg" });
-      await navigator.share({
-        title: post?.title,
-        text: post?.excerpt,
-        url: typeof window !== "undefined" ? window.location.href : "",
-        files: [file],
-      });
-    } catch (err) {
-      console.log(err);
-    }
-
-    // if (navigator.share) {
-    //   const imageUrl = post?.image?.url;
-
+    // try {
     //   const response = await fetch(imageUrl);
     //   const blob = await response.blob();
-
-    //   const file = new File([blob], "image.jpg", { type: "image/jpeg" });
-
-    //   await navigator
-    //     .share({
-    //       title: post?.title,
-    //       text: post?.excerpt,
-    //       url: typeof window !== "undefined" ? window.location.href : "",
-    //       files: [file],
-    //     })
-    //     .then(() => console.log("shared"))
-    //     .catch((err) => console.log("Error ", err));
+    //   let name = Date.now() + `${post.title}.jpg`;
+    //   const file = new File([blob], name, { type: "image/jpeg" });
+    //   await navigator.share({
+    //     title: post?.title,
+    //     text: post?.excerpt,
+    //     url: typeof window !== "undefined" ? window.location.href : "",
+    //     files: [file],
+    //   });
+    // } catch (err) {
+    //   console.log(err);
     // }
+
+    if (navigator.share) {
+      const imageUrl = post?.image?.url;
+
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+
+      const file = new File([blob], "image.jpg", { type: "image/jpeg" });
+
+      await navigator
+        .share({
+          title: post?.title,
+          text: post?.excerpt,
+          url: typeof window !== "undefined" ? window.location.href : "",
+          files: [file],
+        })
+        .then(() => console.log("shared"))
+        .catch((err) => console.log("Error ", err));
+    }
   };
   // const handleClick = async () => {
   //   if (navigator.share) {
