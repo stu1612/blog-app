@@ -7,7 +7,7 @@ export default function ContentSmallScreen({ posts }: FeaturedPostsProps) {
   return (
     <div className="grid grid-container-sm gap-10">
       <div className="grid grid-categories">
-        <div className="flex flex-row gap-5 flex-center flex-wrap py-10">
+        <div className="flex-row gap-5 flex-center flex-wrap py-10">
           <Categories />
         </div>
       </div>

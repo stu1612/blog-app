@@ -12,12 +12,13 @@ export default function BlogCard({ post }: { post: FeaturedPost }) {
       href={`/blog/${post.slug}`}
       className="text-sm transition duration-300 ease-in-out hover:underline hover:underline-offset-4"
     >
-      <div className="grid grid-rows-2 sm:grid-cols-2 sm:grid-rows-1 h-[600px] md:h-[300px] ">
-        <figure className="relative">
+      <div className="flex flex-col h-auto lg:grid lg:grid-cols-2 lg:min-h-[250px] lg:h-fit">
+        <figure className="relative h-[200px] lg:h-full">
           <Image
             src={post.image.url}
             alt={post.title}
             fill
+            className="w-full"
             style={{ objectFit: "cover" }}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
@@ -27,9 +28,11 @@ export default function BlogCard({ post }: { post: FeaturedPost }) {
             <PostCreatedAt createdAt={post?.createdAt} /> -{" "}
             <span>{post?.categories[0].name}</span>
           </p>
-          <h3 className="font-h3">{post.title}</h3>
-          <p className="text-base">{truncateString(post?.excerpt, 80)}</p>
-          <p className="text-sm text-zinc-700">Read more</p>
+          <h3 className="font-h3 py-2">{post.title}</h3>
+          <p className="text-base hidden xl:block">
+            {truncateString(post?.excerpt, 80)}
+          </p>
+          <p className="text-sm text-zinc-700 xl:hidden">Read more</p>
         </div>
       </div>
     </Link>

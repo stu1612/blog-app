@@ -6,6 +6,7 @@ import useNavContext from "@/hooks/useNavContext";
 
 export default function Hero() {
   const { isOpen } = useNavContext();
+
   return (
     <section
       className={`h-auto padding-container custom-transition ${
@@ -18,13 +19,13 @@ export default function Hero() {
           covering a range of{" "}
           <span className="font-black bg-hyper clip-text">frontend</span> and{" "}
           <span className="font-black bg-emerald clip-text">fullstack</span>{" "}
-          topics / Test.{" "}
+          topics{" "}
         </h1>
       </div>
       <div className="grid grid-cols-gallery my-20">
         <figure className="relative h-[400px]">
           <Image
-            src="/software-development.jpg"
+            src="/images/computer.jpg"
             alt="computer on a desk showing a code IDE and some content of a blog article"
             fill
             style={{ objectFit: "cover" }}
